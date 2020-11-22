@@ -1,8 +1,10 @@
 # clock_app
 
-A new Flutter application.
+汇集各种有意思的时钟
 
-## Getting Started
+## 时钟列表
+
+### FlipClock (默认时钟)
 
 This project is a starting point for a Flutter application.
 

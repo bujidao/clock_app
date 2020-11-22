@@ -7,15 +7,15 @@ import 'Clock.dart';
 import 'FlipClock/FlipClock.dart';
 import 'FlipClock/FlipClockNum.dart';
 
-class AlarmConfig extends StatefulWidget {
+class ClockConfig extends StatefulWidget {
 
-  AlarmConfig();
+  ClockConfig();
 
   @override
-  _AlarmConfigState createState() => _AlarmConfigState();
+  _ClockConfigState createState() => _ClockConfigState();
 }
 
-class _AlarmConfigState extends State<AlarmConfig>{
+class _ClockConfigState extends State<ClockConfig>{
   double _startX = 0.0;
   double _startY = 0.0;
 
@@ -63,11 +63,11 @@ class _AlarmConfigState extends State<AlarmConfig>{
           children: [
             Center(
               // 时
-              child: FlipNumText(00, 23, false),
+              child: FlipClockNumText(00, 23, false),
             ),
             Center(
               // 分
-              child: FlipNumText(00, 59, false),
+              child: FlipClockNumText(00, 59, false),
             ),
           ],
         ),

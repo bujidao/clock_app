@@ -5,19 +5,19 @@ import 'package:flutter/material.dart';
 import 'ClockConfig.dart';
 
 // 时钟weiget
-import 'Flipclock/FlipClock.dart';
+import 'FlipClock/FlipClock.dart';
 // import 'ParticleClock/ParticleClock.dart';
 
 class Clock extends StatefulWidget {
   @override
-  _AlarmState createState() => _AlarmState();
+  _ClockState createState() => _ClockState();
 }
 // ClockCustomizer((ClockModel model) => ParticleClock(model))
-class _AlarmState extends State<Clock> {
-  List<Widget> _alarmList = [
+class _ClockState extends State<Clock> {
+  List<Widget> _clockList = [
     FlipClock()
   ];
-  int _currentAlarmIndex = 0;
+  int _currentClockIndex = 0;
 
   double _startX = 0.0;
   double _startY = 0.0;
@@ -25,12 +25,12 @@ class _AlarmState extends State<Clock> {
 /**
  * 切换时钟风格
  */
-  _switchAlarmStyle(String moveDirection) {
-    if (_alarmList.length == 1) return;
+  _switchClockStyle(String moveDirection) {
+    if (_clockList.length == 1) return;
     if (moveDirection == 'rtl') {
-      _currentAlarmIndex = _currentAlarmIndex >= _alarmList.length - 1 ? 0 : _currentAlarmIndex ++;
+      _currentClockIndex = _currentClockIndex >= _clockList.length - 1 ? 0 : _currentClockIndex ++;
     } else {
-      _currentAlarmIndex = _currentAlarmIndex <= 0 ? _alarmList.length - 1 : _currentAlarmIndex --;
+      _currentClockIndex = _currentClockIndex <= 0 ? _clockList.length - 1 : _currentClockIndex --;
     }
   }
 
@@ -38,14 +38,14 @@ class _AlarmState extends State<Clock> {
  * 显示配置页面
  */
   _showConfigPage() {
-    MyNavigator(context, AlarmConfig(), 'ttb').push();
+    MyNavigator(context, ClockConfig(), 'ttb').push();
   }
 
   /**
    * 水平方向移动事件
    */
   _moveHorizontal(String moveDirection) {
-    _switchAlarmStyle(moveDirection);
+    _switchClockStyle(moveDirection);
   }
 
   _moveVertical(String moveDirection) {
@@ -76,7 +76,7 @@ class _AlarmState extends State<Clock> {
       onPointerMove: (event) => {
         _touchMoveEvent(event)
       },
-      child: _alarmList[_currentAlarmIndex]
+      child: _clockList[_currentClockIndex]
     );
   }
 }
