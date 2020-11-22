@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:clock_app/pages/Flipclock/Flip.dart';
+import 'package:clock_app/pages/FlipClock/FlipClock.dart';
 import 'package:flutter/material.dart';
 
 class FlipClockNumText extends StatefulWidget {
@@ -178,7 +178,8 @@ class ClipRectText extends StatelessWidget {
           child: Text(
             "$_value",
             style: TextStyle(
-              // fontFamily: "DroidSans",
+              // fontFamily: "SanFrancisco",
+              // fontFamily: "LockClock",
               fontFamily: "SanFrancisco",
               fontSize: width/1.2,
               color: MyThemeColor.colorClockFont,

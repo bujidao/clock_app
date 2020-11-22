@@ -2,7 +2,7 @@
  * @Author       : Alex Ceng
  * @Date         : 2020-11-22 14:50:18
  * @LastEditors  : Alex Ceng
- * @LastEditTime : 2020-11-22 15:07:32
+ * @LastEditTime : 2020-11-22 17:28:31
  * @Group        : 
  * @Description  : 翻页时钟
  */
@@ -17,6 +17,7 @@ class FlipClock extends StatefulWidget {
 }
 
 class _FlipClockState extends State<FlipClock> {
+  Timer _timer;
 
   int _hour = 0; // 时
   int _minute = 0; // 分
@@ -29,12 +30,15 @@ class _FlipClockState extends State<FlipClock> {
 
     // 获取当前时间
     _getCurrentTime();
-    Timer.periodic(Duration(milliseconds: 1000), (timer) {
+    _timer = Timer.periodic(Duration(milliseconds: 1000), (timer) {
       _getCurrentTime();
     });
+  }
 
-    // 屏幕事件监听
-    // _screenListen();
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
   }
 
 /**
@@ -54,23 +58,23 @@ class _FlipClockState extends State<FlipClock> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-          color: MyThemeColor.colorAppBackground,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Center(
-              // 时
-              child: FlipClockNumText(_hour, 23, true),
-            ),
-            Center(
-              // 分
-              child: FlipClockNumText(_minute, 59, false),
-            ),
-          ],
-        ),
-      );
+      decoration: BoxDecoration(
+        color: MyThemeColor.colorAppBackground,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Center(
+            // 时
+            child: FlipClockNumText(_hour, 23, true),
+          ),
+          Center(
+            // 分
+            child: FlipClockNumText(_minute, 59, false),
+          ),
+        ],
+      ),
+    );
   }
 }
 

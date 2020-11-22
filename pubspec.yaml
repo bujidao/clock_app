@@ -23,6 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # flutter_clock_helper:
+  #   git:
+  #     url: git://github.com/flutter/flutter_clock.git
+  #     path: flutter_clock_helper
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,6 +47,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - lib/assets/palettes.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -60,7 +66,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: SanFrancisco
+      fonts:
+        - asset: lib/fonts/SanFrancisco.otf
+          weight: 900
+    # - family: LockClock
+    #   fonts:
+    #     - asset: lib/fonts/LockClock.ttf
+    #       weight: 900
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

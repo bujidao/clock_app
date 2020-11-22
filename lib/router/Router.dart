@@ -2,10 +2,11 @@
  * @Author       : Alex Ceng
  * @Date         : 2020-11-22 11:40:27
  * @LastEditors  : Alex Ceng
- * @LastEditTime : 2020-11-22 13:04:59
+ * @LastEditTime : 2020-11-22 17:31:00
  * @Group        : 
  * @Description  : 封装自定义页面切换效果
  */
+import 'package:clock_app/utils/Tools.dart';
 import 'package:flutter/cupertino.dart';
 
 class MyNavigator {
@@ -27,8 +28,8 @@ class MyNavigator {
 
   // 页面切换效果
   Route _createRoute() {
-    var begin = enterPositionMap.containsKey(targetEnterPosition) ? enterPositionMap[targetEnterPosition] : enterPositionMap['default'];
-    var end = Offset.zero;
+    Offset begin = MyTools().positionToTween(targetEnterPosition);
+    Offset end = Offset.zero;
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => TargetWidget,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -44,5 +45,9 @@ class MyNavigator {
 
   push () {
     Navigator.of(context).push(_createRoute());
+  }
+
+  widgetSwitch(){
+    _createRoute();
   }
 }
