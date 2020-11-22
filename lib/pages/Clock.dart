@@ -2,17 +2,20 @@ import 'package:clock_app/router/Router.dart';
 import 'package:clock_app/services/touchEvent.dart';
 import 'package:flutter/material.dart';
 
-import 'Flipclock/Flip.dart';
 import 'ClockConfig.dart';
+
+// 时钟weiget
+import 'Flipclock/FlipClock.dart';
+// import 'ParticleClock/ParticleClock.dart';
 
 class Clock extends StatefulWidget {
   @override
   _AlarmState createState() => _AlarmState();
 }
-
+// ClockCustomizer((ClockModel model) => ParticleClock(model))
 class _AlarmState extends State<Clock> {
   List<Widget> _alarmList = [
-    Flip()
+    FlipClock()
   ];
   int _currentAlarmIndex = 0;
 

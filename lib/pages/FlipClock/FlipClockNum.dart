@@ -3,20 +3,20 @@ import 'dart:math';
 import 'package:clock_app/pages/Flipclock/Flip.dart';
 import 'package:flutter/material.dart';
 
-class FlipNumText extends StatefulWidget {
+class FlipClockNumText extends StatefulWidget {
   // 当前传入的数字
   final int num;
   // 当前数字的最大值
   final int maxNum;
   final bool showCornerMark;
 
-  FlipNumText(this.num, this.maxNum, this.showCornerMark);
+  FlipClockNumText(this.num, this.maxNum, this.showCornerMark);
 
   @override
-  _FlipNumTextState createState() => _FlipNumTextState();
+  _FlipClockNumTextState createState() => _FlipClockNumTextState();
 }
 
-class _FlipNumTextState extends State<FlipNumText>
+class _FlipClockNumTextState extends State<FlipClockNumText>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation _animation;
@@ -106,7 +106,7 @@ class _FlipNumTextState extends State<FlipNumText>
   }
 
   @override
-  void didUpdateWidget(FlipNumText oldWidget) {
+  void didUpdateWidget(FlipClockNumText oldWidget) {
     if (this.widget.num != oldWidget.num) {
       _controller.forward();
       _stateNum = oldWidget.num;

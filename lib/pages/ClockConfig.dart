@@ -4,8 +4,8 @@ import 'package:clock_app/router/Router.dart';
 import 'package:clock_app/services/touchEvent.dart';
 import 'package:flutter/material.dart';
 import 'Clock.dart';
-import 'FlipClock/Flip.dart';
-import 'FlipClock/FlipNum.dart';
+import 'FlipClock/FlipClock.dart';
+import 'FlipClock/FlipClockNum.dart';
 
 class AlarmConfig extends StatefulWidget {
 

@@ -1,14 +1,22 @@
+/*
+ * @Author       : Alex Ceng
+ * @Date         : 2020-11-22 14:50:18
+ * @LastEditors  : Alex Ceng
+ * @LastEditTime : 2020-11-22 15:07:32
+ * @Group        : 
+ * @Description  : 翻页时钟
+ */
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import './FlipNum.dart';
+import 'FlipClockNum.dart';
 
-class Flip extends StatefulWidget {
+class FlipClock extends StatefulWidget {
   @override
-  _FlipState createState() => _FlipState();
+  _FlipClockState createState() => _FlipClockState();
 }
 
-class _FlipState extends State<Flip> {
+class _FlipClockState extends State<FlipClock> {
 
   int _hour = 0; // 时
   int _minute = 0; // 分
@@ -54,11 +62,11 @@ class _FlipState extends State<Flip> {
           children: [
             Center(
               // 时
-              child: FlipNumText(_hour, 23, true),
+              child: FlipClockNumText(_hour, 23, true),
             ),
             Center(
               // 分
-              child: FlipNumText(_minute, 59, false),
+              child: FlipClockNumText(_minute, 59, false),
             ),
           ],
         ),
